@@ -7,30 +7,35 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
-    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
-    <link href="css/ionic.app.css" rel="stylesheet">
-    -->
-
-    <!-- ionic/angularjs js -->
+    <script src="js/chance.min.js"></script>
+    <script src="js/diceDictionary.js"></script>
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-<script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
-
-    <!-- cordova script (this will be a 404 during development) -->
-    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
-<!-- <script src="cordova.js"></script> -->
-
-    <!-- your app's js -->
+    <script src="lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js"></script>
+    <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
     <script src="js/app.js"></script>
-  </head>
-  <body ng-app="starter">
 
+  </head>
+  <body ng-app="diceware" ng-controller="DiceCtrl">
     <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
+      <ion-header-bar class="top">
+        <h3 class="title text-center">Diceware Pwd Gen</h3>
       </ion-header-bar>
-      <ion-content>
-      </ion-content>
+        <ion-content padding="true" scroll="false" class="has-header">
+          <form class="list">
+            <ion-item class="range range-royal">Complexity
+              <input type="range" value="6" min="3" max="10" name="cmp_times">
+            </ion-item>
+          </form>
+          <ion-list>
+            <ion-item ng-repeat="item in items">
+              {{item.dice}}
+            </ion-item>
+          </ion-list>
+          <div class="button-bar">
+            <button class="button button-royal button-clear button-block  icon ion-android-delete button-full"></button>
+            <button class="button button-royal button-clear button-block  icon ion-key button-full"></button>
+          </div>
+        </ion-content>
     </ion-pane>
   </body>
 </html>
