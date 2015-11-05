@@ -22,17 +22,25 @@
       <ion-header-bar class="top">
         <h3 class="title text-center">Diceware Pwd Gen</h3>
       </ion-header-bar>
-
       <ion-content padding="true" scroll="false" class="has-header">
-        <ion-item class="range range-royal">Complexity
-          <input type="range" min="3" max="10" id="idrange" name="cmp_times">
-        </ion-item>
+        <div class="item range">
+          <i class="icon ion-minus-circled"></i>
+          <input type="range" name="complex" min="3" max="10">
+          <i class="icon ion-plus-circled"></i>
+        </div>
         <script type='text/javascript'>
           D6.dice(5, getDice);
-          $("#dicebutton").addClass("button button-block button-positive");
-          $("#diceall").css("align:center");
+          $("#dicebutton").addClass("button button-block button-clear button-light");
         </script>
       </ion-content>
+      <div class="bar bar-footer bar-positive" id="footerss">
+        <script>
+          $("#dicebutton").appendTo("#footerss");
+          $("#dicebutton").css("margin","0");
+          $(".diceGroup").css("margin-left","30%");
+          $(".diceGroup").css("margin-top","30%");
+        </script>
+      </div>
     </ion-pane>
   </body>
 </html>
