@@ -12,8 +12,6 @@ angular.module('diceware', ['ionic', 'firebase'])
 
 .controller('DiceCtrl', function($scope, $ionicListDelegate, $ionicPopup, Items){
     $scope.items = Items;
-    alert('Dice length'+diceValues.length());
-    alert('Chance gen:' + chance.integer({min: 1, max:6}));
     var i = roolDice();
     //Range is quantity of words that will be created
     $scope.addItem = function(range){
@@ -26,7 +24,6 @@ angular.module('diceware', ['ionic', 'firebase'])
           'dice': 'teste'
         });
       }
-
     };
     $scope.removeItem = function(item){
       $ionicPopup.confirm({
@@ -42,5 +39,5 @@ angular.module('diceware', ['ionic', 'firebase'])
 })
 
 function roolDice(){
-  return Math.floor(Math.random() * (6 - 1 + 1)) + 1;
+  return chance.integer({min: 1, max:6});
 }

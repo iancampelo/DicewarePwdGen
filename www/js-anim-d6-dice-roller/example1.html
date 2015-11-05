@@ -1,0 +1,31 @@
+<!--
+    JavaScript Animated D6 Dice Roller - Example Combat System
+
+    Written in 2005 by Michael K. Eidson, mike@eposic.org, http://eposic.org
+
+    To the extent possible under law, the author(s) have dedicated all
+    copyright and related and neighboring rights to this software to the
+    public domain worldwide. This software is distributed without any warranty.
+
+    You should have received a copy of the CC0 Public Domain Dedication along
+    with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<html>
+<head>
+<title>Example File for JavaScript Animated D6 Dice Roller</title>
+<script type='text/javascript' src='d6.js'></script>
+</head>
+<body>
+<p>Roll 6 or higher on two dice to hit your opponent.</p>
+<script type='text/javascript'>
+function attack(result) {
+	if (result < 6)
+		alert('You rolled ' + result + '. You missed your opponent!');
+	else
+		alert('You rolled ' + result + '. You hit your opponent!');
+}
+D6.dice(6, attack);
+</script>
+
+</body>
+</html>
