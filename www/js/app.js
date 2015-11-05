@@ -12,7 +12,6 @@ angular.module('diceware', ['ionic', 'firebase'])
 
 .controller('DiceCtrl', function($scope, $ionicListDelegate, $ionicPopup, Items){
     $scope.items = Items;
-    var i = roolDice();
     //Range is quantity of words that will be created
     $scope.addItem = function(range){
       var letters=[];
@@ -36,8 +35,27 @@ angular.module('diceware', ['ionic', 'firebase'])
         }
       });
     };
+    $scope.setResultDice = function(result){
+      $ionicPopup.alert({
+        title: 'Dice Result',
+        cssClass: 'ionicModal',
+        template: 'Dices: '+result.toString()+' Word selected: '+diceValues[result]
+      });
+    }
 })
 
-function roolDice(){
-  return chance.integer({min: 1, max:6});
+function getDice(result){
+  var scope = angular.element(document.getElementById("DiceCtrl")).scope();
+  scope.$apply(function () {
+    scope.setResultDice(getIndividualDices());
+  });
+}
+function getIndividualDices(){
+  var dices = '';
+  $('.diceGroup').children('img').each(function(){
+    var str = this.src.split("-",1);
+    var newS = this.src.replace(str,'').replace('.gif','').replace('-','');
+    dices += newS;
+  });
+  return dices;
 }
